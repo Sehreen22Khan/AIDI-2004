@@ -16,8 +16,8 @@ def load_data(data, destination_table):
     data.to_sql(destination_table, conn, if_exists='replace', index=False)
     conn.close()
 
-def main():
-    source_file = 'data.csv'
+def main(filename):
+    source_file = filename
     extracted_data = extract_data(source_file)
     transformed_data = transform_data(extracted_data)
     destination_table = 'transformed_data'
@@ -25,4 +25,4 @@ def main():
     print("ETL process completed successfully!")
 
 if __name__ == "__main__":
-    main()
+    main('data.csv')
